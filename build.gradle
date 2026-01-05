@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0' // tambahkan plugin Allure
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.9.0'               // TestNG
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'    // RestAssured
+    testImplementation 'org.hamcrest:hamcrest:2.2'             // Assertions
+    testImplementation 'io.qameta.allure:allure-testng:2.25.0' // Allure TestNG
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.25.0' // Allure RestAssured
+}
+
+
+test {
+    useTestNG()
+    testLogging.showStandardStreams = true
+}

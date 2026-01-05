@@ -12,10 +12,6 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: gh-pages-api
-  cancel-in-progress: true
-
 jobs:
   api-tests:
     runs-on: ubuntu-latest

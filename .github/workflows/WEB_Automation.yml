@@ -52,7 +52,7 @@ jobs:
       - name: Deploy Cucumber Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./WEB-Test/build/cucumber-report
           publish_branch: gh-pages
           destination_dir: web  # <-- report WEB disimpan di folder web di gh-pages
@@ -64,5 +64,4 @@ jobs:
           echo "- Report Type: Cucumber HTML Report" >> $GITHUB_STEP_SUMMARY
           echo "- Report URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/web/" >> $GITHUB_STEP_SUMMARY
 
-      - name: Check report files
-        run: ls -l WEB-Test/build/cucumber-report
+      

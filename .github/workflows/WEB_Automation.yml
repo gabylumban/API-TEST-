@@ -36,7 +36,7 @@ jobs:
 
       - name: Prepare Cucumber Report
         run: |
-          cp WEB-Test/build/cucumber-report/cucumber.html Web-test/build/cucumber-report/index.html
+          cp WEB-Test/build/cucumber-report/cucumber.html WEB-Test/build/cucumber-report/index.html
 
       - name: Upload Cucumber Report Artifact
         uses: actions/upload-artifact@v4

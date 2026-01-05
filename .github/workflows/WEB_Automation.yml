@@ -39,9 +39,9 @@ jobs:
         run: ./gradlew clean test
 
       - name: Prepare Cucumber Report
-        run: |
-          mkdir -p WEB-Test/build/cucumber-report
-          cp WEB-Test/build/cucumber-report/cucumber.html WEB-Test/build/cucumber-report/index.html
+        working-directory: ./WEB-Test
+        run:
+          cp build/cucumber-report/cucumber.html build/cucumber-report/index.html
 
       - name: Upload Cucumber Report Artifact
         uses: actions/upload-artifact@v4
@@ -63,3 +63,6 @@ jobs:
           echo "- Environment: GitHub Actions" >> $GITHUB_STEP_SUMMARY
           echo "- Report Type: Cucumber HTML Report" >> $GITHUB_STEP_SUMMARY
           echo "- Report URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/web/" >> $GITHUB_STEP_SUMMARY
+
+      - name: Check report files
+        run: ls -l WEB-Test/build/cucumber-report
